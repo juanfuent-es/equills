@@ -1,0 +1,34 @@
+<% provide(:title, "Lita de imágenes") %>
+
+<!-- Content Header (Page header) -->
+<header class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <ol class="breadcrumb float-sm-right mt-2">
+          <li class="breadcrumb-item active"><%= t(:images) %></li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</header>
+<!-- Main content -->
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <h1 class="card-title">Galería de imagenes</h1>
+      <%= link_to new_admin_image_path, class: 'btn btn-outline-primary btn-sm float-right' do %>
+        <i class="fas fa-plus"></i>
+        Nueva Imagen
+      <% end %>
+    </header>
+    <div class="card-body row" id="img-grid">
+      <%= render "admin/images/index", images: @images %>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+
+</section>
+<!-- /.content -->

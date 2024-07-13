@@ -1,0 +1,34 @@
+@import url("base/vars.css");
+@import url("base/default.css");
+@import url("base/text.css");
+@import url("base/fonts.css");
+@import url("base/forms.css");
+@import url("base/tables.css");
+@import url("base/link_buttons.css");
+
+@import url("components/scroll.css");
+@import url("components/preloader.css");
+
+/* components */
+@import url("components/buttons.css");
+@import url("base/media.css");
+
+@config "../../../config/tailwind.config.js";
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    textarea,
+    select {
+        @apply px-3 py-0 h-8 w-full !bg-dark border border-dark-800 bg-primary-900/10 min-w-full flex-auto appearance-none rounded-md shadow-md shadow-dark-800/5 placeholder:text-dark-500 focus:border-light-500 focus:outline-none focus:ring-4 focus:ring-light-500/10;
+    }
+    textarea {
+        @apply h-auto min-h-24 py-2;
+    }
+}
+
+@layer components {}
+@layer utilities {}

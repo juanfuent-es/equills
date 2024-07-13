@@ -1,0 +1,15 @@
+<% provide(:title, "#{t(:new)} #{t(:country)}") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%= "#{t(:new)} #{t(:country)}" %></h1>
+    <p class="mt-2 text-gray-500">Los países se administran para poder relacionarlos con registro de usuarios, proyectos, etc.</p>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to admin_countries_path, class: "btn danger" do %>
+    <i class="fa-solid fa-arrow-left"></i> Regresar
+    <% end %>
+  </nav>
+</header>
+
+<%= render 'form', country: @country %>

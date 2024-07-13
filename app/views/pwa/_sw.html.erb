@@ -1,0 +1,3 @@
+<script>
+if('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('<%= "https://#{request.host_with_port}/" %>sw.js').then(registration=>{}).catch(err => {}) })}
+</script>

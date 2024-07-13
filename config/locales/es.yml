@@ -1,0 +1,128 @@
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+es:
+  letrisms: Letrismos
+  es: Español
+  en: English
+  image: Imagen
+  images: Imágenes
+  spanish: Español
+  english: English
+  metatag: Metatag
+  metatags: Metatags
+  alt: Texto alternativo / Descriptivo
+  description: Descripción
+  og: Archivo OpenGraph
+  ogs: Archivos OpenGraph
+  asset: Asset
+  assets: Assets
+  #users
+  user: Usuario
+  users: Usuarios
+  name: Nombre
+  password: Contraseña
+  password_confirmation: Confirmación de Contraseña
+  role: Rol de usuario
+  www: Link Externo
+  bio: Biografía
+  #countries
+  name_en: Nombre en Inglés
+  name_es: Nombre en Español
+  country: País
+  continent: Continente
+  sub_continent: Sub Continente
+  code: Código
+  countries: Países
+  alpha_2: Código Alfa 2
+  alpha_3: Código Alfa 3
+  #devise
+  not_a_member: ¿Aún no estás registrado?
+  resend_unlock_instructions: Recibir Instrucciones
+  #errors
+  not_found: La página a la que intentas acceder no existe, se ha movido o se ha eliminado.
+  server_error: Ha ocurrido un error en servidor. Por favor, reintenta de nuevo más tarde.
+  unprocessable_entity: Ha ocurrido un error al momento de intentar procesar tu petición. Por favor, reintenta de nuevo más tarde.
+  # login
+  profile: Perfil
+  close_session: Cerrar Sesión
+  password: Contraseña
+  password_confirmation: Confirmación de Contraseña
+  remember_me: Recordar Sesión
+  login: Iniciar Sesión
+  email: Correo Electrónico
+  recover: Recuperar Cuenta
+  recover_password: Recuperar Contraseña
+  login_with: Sign in with
+  receive_instructions: Recibir Instrucciones
+  or: O
+  body: Contenido
+  sign_up: Registrarse
+  new_account: Nueva Cuenta
+  full_name: Nombre Completo
+  characters_minimum: Caracteres Mínimo
+  accept: Acepto
+  terms: Términos y Condiciones
+  privacy: Aviso de Privacidad
+  save: Guardar
+  delete: Eliminar
+  title: Título
+  description: Descripción
+  editing: Editando
+  new: Nuevo
+  article: Artículo
+  articles: Artículos
+  detail: Detalle
+  post: Post
+  page: Página
+  pages: Páginas
+  content: Contenido
+  category: Categoría
+  slug: friendly-URL
+  picture: Imagen
+  sign_in: Iniciar Sesión
+  home: Inicio
+  activerecord:
+    models:
+      post:
+        one: Artículo
+        other: Artículos
+      page:
+        one: Página
+        other: Páginas
+      user:
+        one: Usuario
+        other: Usuarios
+    attributes:
+      page:
+        user: Author
+        title: Título
+        description: Descripción
+        keywords: Palabras clave
+        lang: Lenguaje
+        slug: Friendly-URL
+      post:
+        title: El título
+        body: El contenido
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: está registrado por otro usuario, escriba otro
+            password:
+              too_short: es muy corta, escribe otra. (Mínimo 6 caracteres).
+            password_confirmation:
+              confirmation: no coincide con la contraseña
+        page:
+          attributes:
+            slug:
+              blank: es obligatorio
+        post:
+          attributes:
+            title:
+              blank: es obligatorio
+        video:
+          attributes:
+            title:
+              taken: ya existe, escribe otro nombre de video

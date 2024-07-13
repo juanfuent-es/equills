@@ -1,0 +1,33 @@
+<% provide(:title, "Blog") %>
+
+<!-- Content Header (Page header) -->
+<header class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-12">
+        <h1>Blog</h1>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</header>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <h3 class="card-title">(<%= @pages.count %> artículos)</h3>
+      <%= link_to new_admin_page_path(category:'blog'), class: 'btn btn-outline-primary btn-sm float-right' do %>
+        <i class="fas fa-plus"></i> Nuevo Artículo
+      <% end %>
+    </header>
+    <div class="card-body p-0">
+      <% if @pages.any? %>
+        <%= render "admin/pages/table", pages: @pages %>
+      <% else %>
+        <p class="text-center p-3">Aún no hay artículos creados</p>
+      <% end %>
+    </div>
+  </div>
+</section>
+<!-- /.content -->

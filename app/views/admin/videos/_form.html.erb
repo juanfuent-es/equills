@@ -1,0 +1,28 @@
+<section class="content">
+  <%= form_for [:admin, video], local: true, html: { :class=> "row" } do |f| %>
+    <div class="col-md-12">
+      <!-- .card/ -->
+      <div class="card card-primary card-outline">
+        <!-- .card-body/ -->
+        <div class="card-body row">
+          <%= render "admin/shared/errors", object: video %>
+          <div class="form-group col-md-6">
+            <%= f.label :title, "Título (Máximo 160 caracteres)" %>
+            <%= f.text_field :title, class: "form-control", placeholder: "Título", required: true, maxLength: 160 %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :file, "Video. (Formato .mp4 1920x1080)" %>
+            <%= f.file_field :file, class: "form-control", required: true, accept: "video/mp4" %>
+          </div>
+        </div>
+        <!-- /.card-body -->
+        <!-- .card-footer/ -->
+        <footer class="card-footer text-right">
+          <button class="btn btn-outline-primary mt-2 mb-2 btn-sm"><i class="fas fa-save"></i> <%= t(:save) %></button>
+        </footer>
+        <!-- /.card-footer -->
+      </div>
+      <!-- /.card -->
+    </div>
+  <% end %>
+</section>

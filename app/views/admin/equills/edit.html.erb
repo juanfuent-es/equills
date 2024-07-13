@@ -1,0 +1,15 @@
+<% provide(:title, "Editando #{t(:equill)}") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%= "#{t(:editing)} #{t(:equill)}" %></h1>
+    <p class="mt-2 text-gray-500">Lorem Ipsum...</p>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to admin_equills_path, class: 'btn danger' do %>
+      <i class="fa-solid fa-arrow-left"></i> Regresar
+    <% end %>
+  </nav>
+</header>
+
+<%= render 'form', equill: @equill %>

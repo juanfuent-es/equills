@@ -1,0 +1,54 @@
+<% if images.empty? %>
+    <div class="col-md-12 text-center mt-4">
+        <p>Aún no se ha agregado ninguna imagen</p>
+    </div>
+<% else %>
+    <% images.each do |image| %>
+    <div class="col-6 col-sm-4 col-md-3 col-xl-2">
+        <div class="row">
+          <%= link_to admin_image_url(image), class: "col-12 p-0", style: "background-color: #{image.bg};", title: image.title do %>
+          <%= image_tag image.file.thumb.url, alt: image.alt, width: 240, height: 240 %>
+          <ul class="palette">
+              <% image.palette.each do |hex| %>
+                <li style='background-color: <%= hex %>;'></li>
+              <% end %>
+          </ul>
+          <% end %>
+          <%= link_to edit_admin_image_url(image), class: "btn col-6 btn-outline-info btn-sm" do %>
+            <i class="fas fa-pencil-alt"></i> Editar
+          <% end %>
+          <%= link_to admin_image_url(image), method: :delete, class: "btn col-6 btn-outline-danger btn-sm" , data: { confirm: "¿Estás seguro de eliminar este imagen? (#{image.title})" } do %>
+            <i class='fas fa-trash'></i> Eliminar
+          <% end %>
+        </div>
+    </div>
+    <% end %>
+<% end %>
+
+<style>
+#img-grid a {
+  display: inline-block;
+  border: 1px solid #dbdbdb;
+  border-radius: 6px;
+  width: 100%;
+  text-align: center;
+}
+#img-grid a img {
+  width: 100%%;
+  max-width: 240px;
+  max-height: 240px;
+  object-fit: cover;
+  object-position: center;
+}
+ul.palette {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+}
+ul.palette  li {
+  width: 100%;
+  height: 1em;
+}
+</style>

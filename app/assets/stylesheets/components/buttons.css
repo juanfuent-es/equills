@@ -1,0 +1,36 @@
+/*
+* Buttons
+* @extends from component: .btn # @see application.tailwind.css#components.btn
+* @more: https://tailwindui.com/components/application-ui/elements/buttons 
+*/
+.btn {
+    @apply flex-none rounded-full px-4 py-1 text-xs font-medium ring-1 ring-inset transition cursor-pointer;
+    @apply text-primary-400 bg-primary-400/10 ring-primary-400/20 hover:bg-primary-400/10 hover:text-primary-300 hover:ring-primary-600;
+}
+.disabled {
+    @apply text-dark-400 bg-dark-400/10 ring-dark-400/20 hover:bg-dark-400/10 hover:text-dark-500 hover:ring-dark-600;
+}
+.danger {
+    @apply text-red-400 bg-red-400/10 ring-red-400/20 hover:bg-red-400/10 hover:text-red-500 hover:ring-red-600;
+}
+.success {
+    @apply text-green-400 bg-green-400/10 ring-green-400/20 hover:bg-green-400/10 hover:text-green-500 hover:ring-green-600;
+}
+/* .link {
+    @apply inline-flex gap-0.5 justify-center overflow-hidden transition text-primary hover:text-primary-600;
+} */
+.btn-xs {
+    @apply btn px-2 py-1 text-xs font-light;
+}
+.btn-sm {
+    @apply btn px-2 py-1 text-sm font-normal;
+}
+.btn-md {
+    @apply btn;
+}
+.btn-lg {
+    @apply btn px-3 py-2 text-lg font-semibold;
+}
+.btn-xl {
+    @apply btn px-3.5 py-2.5 text-xl;
+}

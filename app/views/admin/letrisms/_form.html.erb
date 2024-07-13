@@ -1,0 +1,59 @@
+<section class="w-full mx-auto">
+  <%= form_for [:admin, letrism], local: true do |f| %>
+    <%= render "admin/shared/errors", object: letrism %>
+        
+    <div class="w-full">
+      <%= f.label :user_id, t(:user_id) %>
+      <%= f.text_field :user_id, placeholder: t(:user_id) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :equill_id, t(:equill_id) %>
+      <%= f.text_field :equill_id, placeholder: t(:equill_id) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :chars, t(:chars) %>
+      <%= f.text_field :chars, placeholder: t(:chars) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :slug, t(:slug) %>
+      <%= f.text_field :slug, placeholder: t(:slug) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :paths, t(:paths) %>
+      <%= f.text_field :paths, placeholder: t(:paths) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :img, t(:img) %>
+      <%= f.text_field :img, placeholder: t(:img) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :bg, t(:bg) %>
+      <%= f.text_field :bg, placeholder: t(:bg) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :fill, t(:fill) %>
+      <%= f.text_field :fill, placeholder: t(:fill) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :stroke, t(:stroke) %>
+      <%= f.text_field :stroke, placeholder: t(:stroke) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.check_box :gallery %>
+      <%= f.label :gallery, t(:gallery) %>
+    </div>
+    <!--  <<< end if-else password digest -->
+  <footer class="w-full flex justify-between mt-2">
+    <button class="btn btn-md"><i class="fas fa-save"></i> <%= t(:save) %></button>
+  </footer>
+<% end %>
+</section>

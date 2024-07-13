@@ -1,0 +1,30 @@
+<% if videos.empty? %>
+<div class="col-md-12 text-center mt-4">
+    <p>Aún no se ha agregado ningún video</p>
+</div>
+<% else %>
+<table class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Poster</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% videos.each do |video| %>
+    <tr>
+      <td>
+        <%= link_to admin_video_url(video), class: "btn btn-outline-info btn-sm" do %>
+          <%= video.title %>
+        <% end %>
+      </td>
+      <td class="text-right">
+        <%= link_to admin_video_path(video), method: :delete, class: "btn btn-outline-danger btn-sm" , data: { confirm: "¿Estás seguro de eliminar este #{t(:video)}?" } do %>
+          <i class='fas fa-trash'></i> Eliminar
+        <% end -%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>

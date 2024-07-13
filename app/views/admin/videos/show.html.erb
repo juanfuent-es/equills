@@ -1,0 +1,116 @@
+<% provide(:title, "Detalle de video") %>
+
+<header class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><%= @video.title %></h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right mt-2">
+          <li class="breadcrumb-item">
+            <%= link_to t(:videos), admin_videos_path %>
+          </li>
+          <li class="breadcrumb-item active">
+            Detalle de video
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</header>
+
+
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <%= link_to "MPD", "/videos/mpd/#{@video.slug}", class: "btn btn-sm float-left" %>
+      <%= link_to admin_video_path(@video), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:video)}?" } do %>
+        <i class="fa-solid fa-trash"></i> Eliminar
+      <% end %>
+    </header>
+    <div class="card-body">
+      <%= video_tag @video.file.v_1080.url, class: "col-lg-12", autoplay: true, muted: true, loop: true %>
+       <table class="table table-sm table-hovered text-center">
+            <thead>
+              <tr>
+                <th class='text-left'>Version</th>
+                <th>Screen</th>
+                <th>Width</th>
+                <th>Height</th>
+                <th>Size</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- quadhd/. -->
+              <tr>
+                <td class='text-left'>Original</td>
+                <td>1920x1080</td>
+                <% size = video_info(@video.file.url) %>
+                <td><%= size.width %></td>
+                <td><%= size.height %></td>
+                <td>
+                  <%= link_to asset_url(@video.file.url), title: "QuadHD", target: "_blank" do %>
+                    <%= file_size(@video.file.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class='text-left'>Desktop</td>
+                <td>1920x1080</td>
+                <% size = video_info(@video.file.v_1080.url) %>
+                <td><%= size.width %></td>
+                <td><%= size.height %></td>
+                <td>
+                  <%= link_to asset_url(@video.file.v_1080.url), title: "QuadHD", target: "_blank" do %>
+                    <%= file_size(@video.file.v_1080.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class='text-left'>Tablet-Laptop</td>
+                <td>1280x720</td>
+                <% size = video_info(@video.file.v_720.url) %>
+                <td><%= size.width %></td>
+                <td><%= size.height %></td>
+                <td>
+                  <%= link_to asset_url(@video.file.v_720.url), title: "QuadHD", target: "_blank" do %>
+                    <%= file_size(@video.file.v_720.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class='text-left'>Mobile</td>
+                <td>720x480</td>
+                <% size = video_info(@video.file.v_480.url) %>
+                <td><%= size.width %></td>
+                <td><%= size.height %></td>
+                <td>
+                  <%= link_to asset_url(@video.file.v_480.url), title: "QuadHD", target: "_blank" do %>
+                    <%= file_size(@video.file.v_480.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <tr>
+                <td class='text-left'>Mobile</td>
+                <td>480x360</td>
+                <% size = video_info(@video.file.v_360.url) %>
+                <td><%= size.width %></td>
+                <td><%= size.height %></td>
+                <td>
+                  <%= link_to asset_url(@video.file.v_360.url), title: "QuadHD", target: "_blank" do %>
+                    <%= file_size(@video.file.v_360.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <!-- /.quadhd. -->
+              <!-- /.qhd. -->
+              <!-- vga/. -->
+              <!-- /.vga. -->
+          </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</section>

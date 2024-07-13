@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="<%= @lang %>" dir="ltr" xmlns="https://www.w3.org/1999/xhtml" xmlns:og="https://ogp.me/ns#" xmlns:fb="https://www.facebook.com/2008/fbml" class="h-full m-0">
+  <head>
+    <meta charset="utf-8">
+    <%= render "shared/fonts" %>
+    <%= render "shared/tag_manager" %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <%= render "shared/metadata" %>
+    <%= render "shared/favicons" %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application" %>
+    <script type="application/ld+json">
+    {
+    "@context": "http://schema.org",
+    <%= render "shared/json_ld/page" %>,
+    <%= render "shared/json_ld/publisher" %>,
+    }
+    </script>
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'devise', defer: true %>
+  </head>
+  <body class="h-full m-0 bg-black text-white">
+    <%= render "shared/preloader" %>
+    <main class="flex min-h-full">
+      <div class="flex flex-1 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24 w-full md:w-5/12 z-10 m-auto">
+        <div class="mx-auto w-full max-w-sm lg:w-96">
+          <%= render "devise/shared/header" %>
+          <%= yield %>
+        </div>
+        <!--
+        # Este comentario es para mostrar una imagen a un lado, no todos los cms requieren de esto, el default es la forma centrada.
+        <aside class="w-full md:w-7/12 absolute md:relative left-0 top-0 md:left-auto h-full md:h-auto z-0 pointer-events-none">
+          <img class="absolute inset-0 h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1596496181848-3091d4878b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="BG Placeholder"/>
+        </aside>
+        -->
+      </div>
+    </main>
+  </body>
+</html>

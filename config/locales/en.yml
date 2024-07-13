@@ -1,0 +1,46 @@
+en:
+  letrisms: Letrisms
+  es: Spanish
+  en: English
+  new: New
+  edit: Edit
+  update: Update
+  create: Create
+  offline: Please check your internet connection
+  alt: Alternative Text / Descriptive
+  #devise 
+  not_a_member: Not a member?
+  resend_unlock_instructions: Resend unlock instructions
+  #errors
+  not_found: Page not found.
+  server_error: Server Error. Please retry more later.
+  unprocessable_entity: Unprocessable Entity.
+  spanish: Español
+  english: English
+  asset: Asset
+  assets: Assets
+  #login
+  profile: Perfil
+  full_name: Full Name
+  new_account: New Account
+  sign_up: Sign Up
+  recover: Recover
+  receive_instructions: Receive Instructions
+  recover_password: Recover Password
+  close_session: Close Session
+  password: Password
+  password_confirmation: Password Confirmation
+  remember_me: Remember me
+  login: "Log In"
+  email: "E-mail"
+  login_with: Sign in with
+  or: OR
+  characters_minimum: Characters Minimum
+  accept: Accept
+  terms: Terms and Conditions
+  privacy: Privacy Notice
+  home: Inicio
+  metatag: Metatag
+  metatags: Metatags
+  description: Description
+  picture: Image

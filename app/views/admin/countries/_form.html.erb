@@ -1,0 +1,48 @@
+<section class="w-full mx-auto">
+  <%= form_for [:admin, country], local: true, html: { clas: "" } do |f| %>
+  <%= render "admin/shared/errors", object: country %>
+  <!-- .form/ -->
+  <div class="grid grid-cols-2 gap-2">
+    <%= f.label :name_es do %>
+    <span class="truncated"><%= t(:name_es) %></span>
+    <%= f.text_field :name_es, class: "", placeholder: t(:name_es), autofocus: true, required: true %>
+    <% end %>
+    <%= f.label :name_en do %>
+    <span class="truncated"><%= t(:name_en) %></span>
+    <%= f.text_field :name_en, class: "", placeholder: t(:name_en), required: true %>
+    <% end %>
+    <%= f.label :continent do %>
+    <span class="truncated"><%= t(:continent) %></span>
+    <%= f.select :continent, Country.pluck(:continent).uniq.sort.collect { |c| c.titleize }, {}, class: "", placeholder: t(:continent), required: true %>
+    <% end %>
+    <%= f.label :sub_continent do %>
+    <span class="truncated"><%= t(:sub_continent) %></span>
+    <%= f.select :sub_continent, Country.pluck(:sub_continent).uniq.sort.collect { |c| c.titleize }, {}, class: "", placeholder: t(:sub_continent) %>
+    <% end %>
+  </div>
+  <div class="flex items-stretch justify-around space-x-2">
+    <%= f.label :code do %>
+    <span class="truncated">Código Teléfonico</span>
+    <%= f.text_field :code, class: "", placeholder: t(:code), maxlength: 10, required: true %>
+    <% end %>
+    <%= f.label :alpha_2 do %>
+    <span class="truncated"><%= t(:alpha_2) %></span>
+    <%= f.text_field :alpha_2, class: " text-uppercase", placeholder: "XX", maxlength: 2, required: true %>
+    <% end %>
+    <%= f.label :alpha_3 do %>
+    <span class="truncated"><%= t(:alpha_3) %></span>
+    <%= f.text_field :alpha_3, class: " text-uppercase", placeholder: "XXX", maxlength: 3, required: true %>
+    <% end %>
+  </div>
+  <!-- /.form -->
+  <!-- .footer/ -->
+  <footer class="w-full flex justify-between mt-2">
+    <%= f.check_box :active, class: "sr-only peer" %>
+    <%= f.label :active, class: "flex items-center text-dark-600 hover:text-dark-500 peer-checked:text-green-400 !cursor-pointer transition-colors" do %>
+      <i class="fa-regular fa-circle-dot pr-1"></i>
+      País Activo
+    <% end %>
+    <button class="btn btn-md"><i class="fas fa-save"></i> <%= t(:save) %></button>
+  </footer>
+  <% end %>
+</section>

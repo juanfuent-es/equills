@@ -1,0 +1,13 @@
+<picture>
+    <source type="image/webp" media="(min-width: 1921px)" srcset="<%= asset_url(image.file.quad_hd_webp.url) %>" />
+    <source type="<%= image.mime_type %>" media="(min-width: 1921px)" srcset="<%= asset_url(image.file.quad_hd.url) %>" />
+    <source type="image/webp" media="(min-width: 1281px)" srcset="<%= asset_url(image.file.fhd_webp.url) %>" />
+    <source type="<%= image.mime_type %>" media="(min-width: 1281px)" srcset="<%= asset_url(image.file.fhd.url) %>" />
+    <source type="image/webp" media="(min-width: 961px)" srcset="<%= asset_url(image.file.hd_webp.url) %>" />
+    <source type="<%= image.mime_type %>" media="(min-width: 961px)" srcset="<%= asset_url(image.file.hd.url) %>" />
+    <source type="image/webp" media="(min-width: 641px)" srcset="<%= asset_url(image.file.qhd_webp.url) %>" />
+    <source type="<%= image.mime_type %>" media="(min-width: 641px)" srcset="<%= asset_url(image.file.qhd.url) %>" />
+    <source type="image/webp" srcset="<%= asset_url(image.file.vga_webp.url) %>" />
+    <source type="<%= image.mime_type %>" srcset="<%= asset_url(image.file.vga.url) %>" />
+    <img src="<%= asset_url(image.file.vga.url) %>" alt="<%= alt %>" class="img-gl w-screen h-screen"/>
+</picture>

@@ -1,0 +1,27 @@
+<div class="card card-primary card-outline">
+    <div class="card-body row">
+        <div class="col-md-12">
+            <h3>Microdatos</h3>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <%= object.object.image %>
+                <%= object.label :title, t(:title) %>
+                <%= object.text_field :title, class: "form-control", placeholder: t(:title) %>
+            </div>
+            <div class="form-group">
+                <%= object.label :category, t(:category) %>
+                <%= object.text_field :category, class: "form-control", placeholder: t(:category) %>
+            </div>
+            <div class="form-group">
+                <%= object.label :content, t(:content) %>
+                <%= object.text_field :content, class: "form-control", placeholder: t(:content) %>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <%= object.label :image, t(:image) %>
+            <%= image_tag object.object.image.url %>
+            <%= object.file_field :image, class: "form-control", placeholder: t(:image) %>
+        </div>
+    </div>
+</div>

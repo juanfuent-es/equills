@@ -1,0 +1,19 @@
+<% provide(:title, "Páginas") %>
+<!-- header -> -->
+<header class="flex items-center justify-between border-b border-white/5 px-4 py-4 sm:px-6 sm:py-6 lg:px-8">
+  <h1 class="text-base font-semibold leading-7 text-white">Listado de Páginas <sup><%= @pages.count %></sup></h1>
+
+  <!-- Sort dropdown -->
+  <div class="relative">
+    <%= link_to new_admin_page_path, class: 'btn success' do %>
+    <i class="fas fa-plus"></i> Nueva Página
+    <% end %>
+  </div>
+</header>
+<!-- <- header -->
+
+<!-- content -> -->
+<ul role="list" class="divide-y divide-white/5">
+  <%= render "admin/pages/index", object: @pages %>
+</ul>
+<!-- <- content -->

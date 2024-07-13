@@ -1,0 +1,15 @@
+<div class="input-group col-md-12 img-container">
+    <%= image_tag (f.object.image.nil? ? "/static/img-not-found.png" : f.object.image.file.vga.url), id: "image-preview-#{idx}" %>
+    <div class="input-group-prepend">
+        <span class="input-group-text">Imagen</span>
+    </div>
+    <input type="text" class="form-control"
+      value="<%= f.object.image.nil? ? "Sin imagen" : "#{f.object.image.alt}" %>"
+      readonly id="label-image-<%= idx %>">
+    <div class="input-group-append">
+      <a href="#" class="btn btn-primary input-group-text search-image-btn" data-toggle="modal" data-preview="#image-preview-<%= idx %>"
+        data-target="#images-modal" data-label="#label-image-<%=idx%>">
+        <%= f.hidden_field :image_id %><i class="fa-solid fa-image"></i> 
+      </a>
+    </div>
+  </div>

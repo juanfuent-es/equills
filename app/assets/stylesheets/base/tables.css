@@ -1,0 +1,15 @@
+table {
+    @apply w-full border-separate border-spacing-0 text-sm text-gray-400;
+}
+
+thead {
+    @apply bg-dark-800/20;
+}
+
+th {
+    @apply px-3 py-3.5 text-left
+}
+
+td {
+    @apply whitespace-nowrap border-b border-gray-500 pl-2 py-2 md:py-3;
+}

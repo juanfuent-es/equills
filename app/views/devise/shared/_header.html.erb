@@ -1,0 +1,11 @@
+<header>
+  <a href="/" title="<%= t(:home) %>" class="p-4">
+    <img src="/static/equills.svg" alt='eQuills' width="100" height="100" class='h-12 w-auto mx-auto'>
+  </a>
+  <h1 class="mt-6 text-2xl font-bold leading-9 tracking-tight"><%= @page.title %></h1>
+  <% if !@page.content.blank? %>
+    <p class="mb-2 text-sm text-gray-500">
+      <%= @page.content.try(:html_safe) %>
+    </p>
+  <% end %>
+</header>

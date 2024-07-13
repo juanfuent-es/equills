@@ -1,0 +1,89 @@
+<section class="w-full mx-auto">
+  <%= form_for [:admin, equill], local: true do |f| %>
+    <%= render "admin/shared/errors", object: equill %>
+        
+    <div class="w-full">
+      <%= f.label :name, t(:name) %>
+      <%= f.text_field :name, placeholder: t(:name) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :difficult, t(:difficult) %>
+      <%= f.text_field :difficult, placeholder: t(:difficult) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :icon, t(:icon) %>
+      <%= f.text_field :icon, placeholder: t(:icon) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :thumb, t(:thumb) %>
+      <%= f.text_field :thumb, placeholder: t(:thumb) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :preview, t(:preview) %>
+      <%= f.text_field :preview, placeholder: t(:preview) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :slug, t(:slug) %>
+      <%= f.text_field :slug, placeholder: t(:slug) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :family, t(:family) %>
+      <%= f.text_field :family, placeholder: t(:family) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :family, t(:family) %>
+      <%= f.text_field :family, placeholder: t(:family) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :param_1, t(:param_1) %>
+      <%= f.text_field :param_1, placeholder: t(:param_1) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :param_2, t(:param_2) %>
+      <%= f.text_field :param_2, placeholder: t(:param_2) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.check_box :public %>
+      <%= f.label :public, t(:public) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :js, t(:js) %>
+      <%= f.text_area :js, class: "editor", placeholder: t(:js) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :css, t(:css) %>
+      <%= f.text_area :css, class: "editor", placeholder: t(:css) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :html, t(:html) %>
+      <%= f.text_area :html, class: "editor", placeholder: t(:html) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :libraries, t(:libraries) %>
+      <%= f.text_area :libraries, class: "editor", placeholder: t(:libraries) %>
+    </div>
+        
+    <div class="w-full">
+      <%= f.label :description, t(:description) %>
+      <%= f.text_area :description, class: "editor", placeholder: t(:description) %>
+    </div>
+    <!--  <<< end if-else password digest -->
+  <footer class="w-full flex justify-between mt-2">
+    <button class="btn btn-md"><i class="fas fa-save"></i> <%= t(:save) %></button>
+  </footer>
+<% end %>
+</section>

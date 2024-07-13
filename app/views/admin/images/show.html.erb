@@ -1,0 +1,192 @@
+<% provide(:title, "Imagen - #{@image.title}") %>
+
+<header class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1>Detalle de imagen</h1>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right mt-2">
+          <li class="breadcrumb-item">
+            <%= link_to t(:images), admin_images_path %>
+          </li>
+          <li class="breadcrumb-item active">
+            Detalle de imagen
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</header>
+<style>
+ul.palette {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  list-style: none;
+  display: flex;
+}
+ul.palette  li {
+  width: 100%;
+  height: 2em;
+}
+picture {
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+}
+</style>
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+  <header class="card-header">
+      <%= link_to edit_admin_image_path(@image), class: "btn btn-outline-primary btn-sm" do %>
+        <i class="fa-solid fa-pencil"></i> Editar
+      <% end -%>
+      <%= link_to admin_image_path(@image), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar esta imagen}?" } do %>
+      <i class="fa-solid fa-trash"></i> Eliminar
+      <% end -%>
+    </header>
+    <div class="card-body" style="background-color: <%= @image.bg %>; color: <%= @image.color %>;">
+      <div class="row">
+        <div class="col-12">
+            <h1><%= @image.title %></h1>
+            <p><%= @image.alt %></p>
+            <picture class="w-full">
+              <source type="image/webp" media="(max-width: 640px)" srcset="<%= asset_url(@image.file.vga_webp.url) %>" />
+              <source type="<%= @image.mime_type %>" media="(max-width: 640px)" srcset="<%= asset_url(@image.file.vga.url) %>" />
+              <source type="image/webp" media="(max-width: 960px)" srcset="<%= asset_url(@image.file.qhd_webp.url) %>" />
+              <source type="<%= @image.mime_type %>" media="(max-width: 960px)" srcset="<%= asset_url(@image.file.qhd.url) %>" />
+              <source type="image/webp" media="(max-width: 1280px)" srcset="<%= asset_url(@image.file.hd_webp.url) %>" />
+              <source type="<%= @image.mime_type %>" media="(max-width: 1280px)" srcset="<%= asset_url(@image.file.hd.url) %>" />
+              <source type="image/webp" media="(max-width: 1920px)" srcset="<%= asset_url(@image.file.fhd_webp.url) %>" />
+              <source type="<%= @image.mime_type %>" media="(max-width: 1920px)" srcset="<%= asset_url(@image.file.fhd.url) %>" />
+              <img src="<%= asset_url(@image.file.thumb.url) %>" alt="<%= @image.alt %>"/>
+          </picture>
+          <!-- palette/.  -->
+          <ul class="palette">
+            <% @image.palette.each do |hex| %>
+              <li style='background-color: <%= hex %>;'></li>
+            <% end %>
+          </ul>
+          <!-- /.palette  -->
+          <!-- versions info/.  -->
+          <table class="table table-sm table-hovered text-center">
+            <thead>
+              <tr>
+                <th class='text-left'>Version</th>
+                <th>Screen</th>
+                <th>ImgDimensions</th>
+                <th>.<%= @image.extension %></th>
+                <th>.webp</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- quad_hd_webp/. -->
+              <tr>
+                <td class='text-left'>Quad HD</td>
+                <td>2560x1440</td>
+                <td><%= img_dimensions(@image.file.quad_hd.url) %></td>
+                <td>
+                  <%= link_to asset_url(@image.file.quad_hd.url), title: "Quad HD", target: "_blank" do %>
+                    <%= file_size(@image.file.quad_hd.url) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to asset_url(@image.file.quad_hd_webp.url), title: "Quad HD", target: "_blank" do %>
+                    <%= file_size(@image.file.quad_hd_webp.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <!-- /.fullhd. -->
+              <!-- fullhd/. -->
+              <tr>
+                <td class='text-left'>FullHD</td>
+                <td>1920x1080</td>
+                <td><%= img_dimensions(@image.file.fhd.url) %></td>
+                <td>
+                  <%= link_to asset_url(@image.file.fhd.url), title: "FullHD", target: "_blank" do %>
+                    <%= file_size(@image.file.fhd.url) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to asset_url(@image.file.fhd_webp.url), title: "FullHD", target: "_blank" do %>
+                    <%= file_size(@image.file.fhd_webp.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <!-- /.fullhd. -->
+              <!-- HD/. -->
+              <tr>
+                <td class='text-left'>HD</td>
+                <td>1280x720</td>
+                <td><%= img_dimensions(@image.file.hd.url) %></td>
+                <td>
+                  <%= link_to asset_url(@image.file.hd.url), title: "HD", target: "_blank" do %>
+                    <%= file_size(@image.file.hd.url) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to asset_url(@image.file.hd_webp.url), title: "HD", target: "_blank" do %>
+                    <%= file_size(@image.file.hd_webp.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <!-- /.HD. -->
+              <!-- qhd/. -->
+              <tr>
+                <td class='text-left'>QHD</td>
+                <td>960x540</td>
+                <td><%= img_dimensions(@image.file.qhd.url) %></td>
+                <td>
+                  <%= link_to asset_url(@image.file.qhd.url), title: "QHD", target: "_blank" do %>
+                    <%= file_size(@image.file.qhd.url) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to asset_url(@image.file.qhd_webp.url), title: "QHD", target: "_blank" do %>
+                    <%= file_size(@image.file.qhd_webp.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <!-- /.qhd. -->
+              <!-- vga/. -->
+              <tr>
+                <td class='text-left'>VGA</td>
+                <td>640x480</td>
+                <td><%= img_dimensions(@image.file.vga.url) %></td>
+                <td>
+                  <%= link_to asset_url(@image.file.vga.url), title: "VGA", target: "_blank" do %>
+                    <%= file_size(@image.file.vga.url) %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to asset_url(@image.file.vga_webp.url), title: "VGA", target: "_blank" do %>
+                    <%= file_size(@image.file.vga_webp.url) %>
+                  <% end %>
+                </td>
+              </tr>
+              <!-- /.vga. -->
+              <!-- thumb/. -->
+              <tr>
+                <td class='text-left'>Thumb</td>
+                <td>240x</td>
+                <td><%= img_dimensions(@image.file.thumb.url) %></td>
+                <td>
+                  <%= link_to asset_url(@image.file.thumb.url), title: "VGA", target: "_blank" do %>
+                    <%= file_size(@image.file.thumb.url) %>
+                  <% end %>
+                </td>
+                <td>-</td>
+              </tr>
+              <!-- /.vga. -->
+          </table>
+          <!-- /.versions info  -->
+        </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</section>

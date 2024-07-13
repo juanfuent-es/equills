@@ -1,0 +1,5 @@
+<picture>
+    <source srcset="<%= asset_url(@image.file.vga_webp.url) %> 640w, <%= asset_url(@image.file.qhd_webp.url) %> 960w, <%= asset_url(@image.file.hd_webp.url) %> 1280w, <%= asset_url(@image.file.fhd_webp.url) %> 1920w, <%= asset_url(@image.file.quad_hd_webp.url) %> 2560w" type="image/webp">
+    <source srcset="<%= asset_url(@image.file.vga.url) %> 640w, <%= asset_url(@image.file.qhd.url) %> 960w, <%= asset_url(@image.file.hd.url) %> 1280w, <%= asset_url(@image.file.fhd.url) %> 1920w, <%= asset_url(@image.file.quad_hd.url) %> 2560w" type="image/<%= @image.extension %>">
+    <img src="<%= asset_url(@image.file.thumb.url) %>" alt="<%= @image.alt %>"/>
+</picture>

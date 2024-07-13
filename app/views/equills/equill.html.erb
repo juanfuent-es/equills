@@ -1,0 +1,100 @@
+<% provide(:title, "equill") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%= "#{t(:detail)} de #{t(:equill)}" %></h1>
+    <p class="mt-2 text-gray-500">Lorem Ipsum...</p>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to admin_equills_path, class: 'btn danger' do %>
+      <i class="fa-solid fa-arrow-left"></i> Regresar
+    <% end %>
+  </nav>
+</header>
+
+
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <%= link_to edit_admin_equill_url(@equill), class: "btn btn-outline-primary btn-sm" do %>
+        <i class="fas fa-pencil-alt"></i> Editar
+      <% end -%>
+      <%= link_to admin_equill_path(@equill), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:equill)}?" } do %>
+        <i class="fa-solid fa-trash"></i> Eliminar
+      <% end -%>
+    </header>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+                      <p>
+              <strong>Name:</strong>
+                                <%= @equill.name %>
+                          </p>
+                      <p>
+              <strong>Difficult:</strong>
+                                <%= @equill.difficult %>
+                          </p>
+                      <p>
+              <strong>Icon:</strong>
+                                <%= @equill.icon %>
+                          </p>
+                      <p>
+              <strong>Thumb:</strong>
+                                <%= @equill.thumb %>
+                          </p>
+                      <p>
+              <strong>Preview:</strong>
+                                <%= @equill.preview %>
+                          </p>
+                      <p>
+              <strong>Slug:</strong>
+                                <%= @equill.slug %>
+                          </p>
+                      <p>
+              <strong>Family:</strong>
+                                <%= @equill.family %>
+                          </p>
+                      <p>
+              <strong>Family:</strong>
+                                <%= @equill.family %>
+                          </p>
+                      <p>
+              <strong>Param 1:</strong>
+                                <%= @equill.param_1 %>
+                          </p>
+                      <p>
+              <strong>Param 2:</strong>
+                                <%= @equill.param_2 %>
+                          </p>
+                      <p>
+              <strong>Public:</strong>
+                                <%= @equill.public %>
+                          </p>
+                      <p>
+              <strong>Js:</strong>
+                                <%= @equill.js %>
+                          </p>
+                      <p>
+              <strong>Css:</strong>
+                                <%= @equill.css %>
+                          </p>
+                      <p>
+              <strong>Html:</strong>
+                                <%= @equill.html %>
+                          </p>
+                      <p>
+              <strong>Libraries:</strong>
+                                <%= @equill.libraries %>
+                          </p>
+                      <p>
+              <strong>Description:</strong>
+                                <%= @equill.description %>
+                          </p>
+                  </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</section>

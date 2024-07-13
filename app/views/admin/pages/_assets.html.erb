@@ -1,0 +1,12 @@
+<header class="flex items-center justify-between border-b border-white/5 pb-2 md:pb-4">
+  <label class="font-medium">Assets</label>
+  <%= add_page_asset f %>
+</header>
+
+<aside class="w-full inline-block" id="page-assets-container">
+  <% idx = 0 %>
+  <%= f.fields_for :assets do |asset|  %>
+  <%= render "admin/pages/asset_fields", object: asset, idx: idx %>
+  <% idx += 1 %>
+  <% end %>
+</aside>

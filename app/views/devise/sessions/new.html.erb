@@ -1,0 +1,32 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), class: 'space-y-6') do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+
+<div class="pt-2">
+  <%= f.label :email, t(:email) %>
+  <%= f.email_field :email, autofocus: true, required: true, placeholder: "tu@email.com", autocomplete: "email" %>
+</div>
+
+<div class="pt-2">
+  <%= f.label :password, t(:password) %>
+  <%= f.password_field :password, required: true, placeholder: "********", autocomplete: "current-password" %>
+</div>
+
+<div class="flex items-center w-full justify-between pt-2 text-sm leading-6">
+  <%= f.label :remember_me, class: "flex items-center" do %>
+  <%= f.check_box :remember_me, class: '', checked: true %>
+  <span class="pl-2"><%= t(:remember_me) %></span>
+  <% end %>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "/#{@lang}/reset_password", class: 'link' do %>
+      <%= t("devise.shared.links.forgot_your_password") %>
+    <% end %>
+  <% end %>
+</div>
+
+<footer class="pt-2">
+  <%= f.submit t(:login), class: "my-2" %>
+  <%= render "devise/shared/links" %>
+</footer>
+
+<% end %>

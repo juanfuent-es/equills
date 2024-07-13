@@ -1,0 +1,38 @@
+<nav class="flex flex-1 flex-col">
+    <ul role="list" class="flex flex-1 flex-col gap-y-7">
+        <li>
+            <ul role="list" class="-mx-2 space-y-1">
+                <%= render "admin/layout/nav_link", text: "eQuills", url: "/admin/equills" %>
+                <%= render "admin/layout/nav_link", text: "Letrismos", url: "/admin/letrisms" %>
+                <%= render "admin/layout/nav_link", text: "Páginas", url: "/admin/pages" %>
+                <%= render "admin/layout/nav_link", text: "Países", url: "/admin/countries" %>
+                <%= render "admin/layout/nav_link", text: "Usuarios", url: "/admin/users" %>
+            </ul>
+        </li>
+        <li>
+            <li>
+                <h2 class="text-xs font-semibold leading-6 text-gray-400">Perfil</h2>
+                <ul role="list" class="-mx-2 mt-2 space-y-1">
+                    <li>
+                    <a href="/admin/profile"
+                        class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-neutral-800 hover:text-white">
+                        <span
+                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-neutral-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">P</span>
+                        <span class="truncate">Actualizar</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a href="<%= destroy_user_session_path %>"
+                        class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-neutral-800 hover:text-white">
+                        <span
+                        class="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border border-gray-700 bg-neutral-800 text-[0.625rem] font-medium text-gray-400 group-hover:text-white">P</span>
+                        <span class="truncate">Cerrar Sesión</span>
+                    </a>
+                    </li>
+            </ul>
+        </li>
+        <li class="-mx-6 mt-auto">
+            <%= render "admin/nav/user_avatar", object: current_user %>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,39 @@
+<% provide(:title, "Lista de #{t(:assets)}") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium">Lista de <%= t(:assets) %> <sup><%= Asset.all.count %></sup></h1>
+    <p class="mt-2 text-gray-500">Los assets son recursos que se encargan de procesar archivos multimedia: imagen, video, audio.</p>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to new_admin_asset_path, class: 'btn' do %>
+      <i class="fas fa-plus"></i> <%= "#{t(:new)} #{t(:asset)}" %>
+    <% end %>
+  </nav>
+</header>
+
+<section class="my-8 flow-root">
+  <table>
+    <thead>
+      <tr>
+        <th>Editar</th>
+        <th><span class="sr-only">Eliminar</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @assets.each do |asset| %>
+        <td>
+          <%= link_to edit_admin_asset_url(asset), class: "" do %>
+            Editar asset
+          <% end %>
+        </td>
+        <td class='text-center'>
+          <%= link_to admin_asset_path(asset), method: :delete, class: "btn " , data: { confirm: "¿Estás seguro de eliminar este #{t(:asset)}?" } do %>
+            <i class='fas fa-trash'></i> Eliminar
+          <% end %>
+        </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,7 @@
+a {
+    @apply cursor-pointer hover:underline;
+}
+
+button {
+    @apply cursor-pointer;
+}

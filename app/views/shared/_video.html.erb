@@ -1,0 +1,10 @@
+<%
+    if browser.device.mobile?
+        video_src = video.file.v_480.url
+    elsif (browser.device.tablet? || browser.device.surface?)
+        video_src = video.file.v_720.url
+    else
+        video_src = video.file.v_1080.url
+    end
+%>
+<%= video_tag video_src, class: "video-gl", autoplay: true, muted: true, loop: true, width: 1920, height: 1080 %>

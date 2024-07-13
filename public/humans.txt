@@ -1,0 +1,15 @@
+DomGl / Developed by:
+
+/* TEAM */
+	Web Development: Juan Fuentes
+	mail: input@juanfuent.es
+
+/* SITE */
+	Last update: 2023/09/24
+	Language: ES_LA
+	Doctype: HTML5
+	IDE: Visual Studio Code
+
+/* TECHNOLOGY */
+	Framework: DomGl on Rails
+	Libraries: gsap, three, tailwind

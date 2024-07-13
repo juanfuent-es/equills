@@ -1,0 +1,31 @@
+<section class="content">
+  <%= form_for [:admin, page], local: true, html: { :class=> "row" } do |f| %>
+  <%= f.hidden_field :category  %>
+  <%= render "admin/shared/errors", object: page %>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 lg:gap-6">
+    <%= render "admin/pages/og", object: f %>
+  </div>
+
+    <!-- /.card-body -->
+  <div class="w-full">
+    <div class="mt-4">
+      <%= f.label :title, class: "m-0 p-0" do  %>
+      Título
+      <small class="float-right text-dark-500"><i><span id="title-counter"><%= f.object.title.to_s.length %></span> / 70 caracteres</i></small>
+      <% end %>
+      <%= f.text_field :title, class: "str-counter", placeholder: "Título...", required: true, data: { target: "#title-counter" }, maxLength: 70 %>
+    </div>
+    <div class="my-2 mb-4">
+      <%= f.label :content, "Contenido Principal", class: ""  %>
+      <%= f.text_area :content, class: "editor", placeholder: "Contenido", rows: 5, cols: 25 %>
+    </div>
+  </div>
+
+  <!-- .card-footer/ -->
+  <footer class="w-full inline-block">
+    <button class="btn btn-outline-primary mt-2 mb-2 btn-sm float-right"><i class="fas fa-save"></i>
+      Guardar Cambios</button>
+  </footer>
+  <% end %>
+</section>

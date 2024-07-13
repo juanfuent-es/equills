@@ -1,0 +1,76 @@
+<% provide(:title, "letrism") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%= "#{t(:detail)} de #{t(:letrism)}" %></h1>
+    <p class="mt-2 text-gray-500">Lorem Ipsum...</p>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to admin_letrisms_path, class: 'btn danger' do %>
+      <i class="fa-solid fa-arrow-left"></i> Regresar
+    <% end %>
+  </nav>
+</header>
+
+
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <%= link_to edit_admin_letrism_url(@letrism), class: "btn btn-outline-primary btn-sm" do %>
+        <i class="fas fa-pencil-alt"></i> Editar
+      <% end -%>
+      <%= link_to admin_letrism_path(@letrism), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:letrism)}?" } do %>
+        <i class="fa-solid fa-trash"></i> Eliminar
+      <% end -%>
+    </header>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+                      <p>
+              <strong>User:</strong>
+                                <%= @letrism.user_id %>
+                          </p>
+                      <p>
+              <strong>Equill:</strong>
+                                <%= @letrism.equill_id %>
+                          </p>
+                      <p>
+              <strong>Chars:</strong>
+                                <%= @letrism.chars %>
+                          </p>
+                      <p>
+              <strong>Slug:</strong>
+                                <%= @letrism.slug %>
+                          </p>
+                      <p>
+              <strong>Paths:</strong>
+                                <%= @letrism.paths %>
+                          </p>
+                      <p>
+              <strong>Img:</strong>
+                                <%= @letrism.img %>
+                          </p>
+                      <p>
+              <strong>Bg:</strong>
+                                <%= @letrism.bg %>
+                          </p>
+                      <p>
+              <strong>Fill:</strong>
+                                <%= @letrism.fill %>
+                          </p>
+                      <p>
+              <strong>Stroke:</strong>
+                                <%= @letrism.stroke %>
+                          </p>
+                      <p>
+              <strong>Gallery:</strong>
+                                <%= @letrism.gallery %>
+                          </p>
+                  </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</section>

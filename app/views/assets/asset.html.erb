@@ -1,0 +1,66 @@
+<% provide(:title, "asset") %>
+
+<header class="flex flex-col-reverse md:items-center md:flex-row border-b border-white/5 py-4 sm:py-6 mb-2 md:mb-4">
+  <div class="sm:flex-auto">
+    <h1 class="leading-6 text-xl font-medium"><%= "#{t(:detail)} de #{t(:asset)}" %></h1>
+    <p class="mt-2 text-gray-500">Lorem Ipsum...</p>
+  </div>
+  <nav class="my-4 sm:flex-none">
+    <%= link_to t(:assets), admin_assets_path, class: 'btn' %>
+  </nav>
+</header>
+
+
+<section class="content">
+  <!-- Default box -->
+  <div class="card card-primary card-outline">
+    <header class="card-header">
+      <%= link_to edit_admin_asset_url(@asset), class: "btn btn-outline-primary btn-sm" do %>
+        <i class="fas fa-pencil-alt"></i> Editar
+      <% end -%>
+      <%= link_to admin_asset_path(@asset), class: "btn btn-outline-danger btn-sm float-right", method: :delete, data: { confirm: "¿Estás seguro de eliminar este #{t(:asset)}?" } do %>
+        <i class="fa-solid fa-trash"></i> Eliminar
+      <% end -%>
+    </header>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-12">
+                      <p>
+              <strong>Number:</strong>
+                                <%= @asset.number %>
+                          </p>
+                      <p>
+              <strong>Alt:</strong>
+                                <%= @asset.alt %>
+                          </p>
+                      <p>
+              <strong>Img:</strong>
+                                <%= @asset.img %>
+                          </p>
+                      <p>
+              <strong>Video:</strong>
+                                <%= @asset.video %>
+                          </p>
+                      <p>
+              <strong>Audio:</strong>
+                                <%= @asset.audio %>
+                          </p>
+                      <p>
+              <strong>Asset type:</strong>
+                                <%= @asset.asset_type %>
+                          </p>
+                      <p>
+              <strong>Slug:</strong>
+                                <%= @asset.slug %>
+                          </p>
+                      <p>
+              <strong>Size:</strong>
+                                <%= @asset.size %>
+                          </p>
+                  </div>
+      </div>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</section>

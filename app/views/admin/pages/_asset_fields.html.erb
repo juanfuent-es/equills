@@ -1,0 +1,37 @@
+<div class="w-full inline-block">
+  <div class="grid grid-cols-3 gap-2">
+    <div class="w-full">
+      <%= object.label :title, t(:title) %>
+      <%= object.text_field :title, placeholder: t(:title) %>
+    </div>
+    <div class="w-full">
+      <%= object.label :alt, t(:alt) %>
+      <%= object.text_field :alt, placeholder: t(:alt) %>
+    </div>
+    <div class="w-full">
+      <%= object.label :asset_type, t(:asset_type) %>
+      <%= object.select :asset_type, [["mp4","Video"],["img","Imagen"],["mp3","audio"]], { include_blank: "Tipo" }, { required: true } %>
+    </div>
+  </div>
+
+  <div class="col-span-full">
+    <label for="cover-photo" class="mt-2">Archivo</label>
+    <div class="flex justify-center rounded-lg border border-dashed border-white/25 px-6 py-10">
+      <div class="text-center">
+        <div class="mt-4 flex text-sm leading-6 text-gray-400">
+          <label for="file-upload"
+            class="relative transition-colors text-light-500 cursor-pointer rounded-md font-semibold focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 hover:text-white">
+            <i class="fa-solid fa-photo-film text-dark-600 text-4xl pb-2 block"></i>
+            <span>Selecciona/Arrastra una imagen o video</span>
+          </label>
+          <input id="file-upload" name="file-upload" type="file" class="sr-only"
+            accept="video/mp4, image/png, image/gif, image/jpeg">
+          <%= object.file_field :img, class: "sr-only" %>
+          <%= object.file_field :video, class: "sr-only" %>
+          <%= object.file_field :audio, class: "sr-only" %>
+        </div>
+        <p class="text-xs leading-5 text-gray-400">PNG, JPG, GIF, MP4 máximo 10MB</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<% if object.any? %>
+    <% object.each do |page| %>
+    <li class="relative flex items-center space-x-4 px-4 py-4 sm:px-6 lg:px-8">
+        <div class="min-w-0 flex-auto">
+            <a href="/admin/pages/<%= page.id %>/edit" class="flex min-w-0 text-sm font-semibold truncate leading-6"
+                title="<%= page.title %>">
+                <span class="truncate">
+                    <i class="fa-regular fa-circle-dot text-neutral-400 pr-1"></i>
+                    <%= page.title %>
+                </span>
+            </a>
+            <div class="mt-3 flex items-center text-xs leading-5 text-neutral-400 whitespace-nowrap">
+                Última actualización: <%= l(page.created_at, format: "%d/%B/%Y") %>
+            </div>
+        </div>
+        <%= link_to "/#{page.slug}", class: "btn" do %>
+            <i class='fas fa-eye'></i> Vista Previa
+        <% end %>
+        <%= link_to admin_page_path(page), method: :delete, class: "btn danger" , data: { confirm: "¿Estás seguro de eliminar la página #{page.title}?" } do %>
+            <i class='fas fa-trash'></i> Eliminar
+        <% end %>
+    </li>
+    <% end %>
+<% else %>
+<!--   sin contenido -->
+<% end %>
